@@ -1,76 +1,77 @@
 # ALK-electrolyzer-model_UNIFI
 Main repository for a physics-based, parametric model of an alkaline (ALK) water electrolyzer cell developed by the University of Florence (Italy).
-
 This repository provides a lightweight Python implementation to generate ALK cell performance curves and efficiency trends as a function of operating conditions. The model combines standard electrochemical relationships (reversible voltage, activation losses, ohmic losses) with literature-based correlations and a temperature-dependent Faraday efficiency fit. References are embedded directly in the source code as DOI links in the comments.
 
-What is included
+---
 
-Physics-based ALK cell model (ElectroCellALK)
+## What is included
 
-Polarization curve generation (current density range up to rated value)
+- **Physics-based ALK cell model (ElectroCellALK)**
 
-Reversible voltage in standard conditions plus Nernst correction (pressure and vapor terms)
+	- Polarization curve generation (current density range up to rated value)
 
-Activation overpotentials via Tafel formulation (anode and cathode)
+	- Reversible voltage in standard conditions plus Nernst correction (pressure and vapor terms)
 
-Ohmic losses including electrode contributions and an empirical resistance term
+	- Activation overpotentials via Tafel formulation (anode and cathode)
 
-Faraday efficiency correlation with optional temperature-dependent coefficient interpolation
+	- Ohmic losses including electrode contributions and an empirical resistance term
 
-Utility functions
+	- Faraday efficiency correlation with optional temperature-dependent coefficient interpolation
 
-Computation of LHV efficiency vs load (based on electrical power and H₂ production rate)
+- **Utility functions**
 
-Example plotting script
+	- Computation of LHV efficiency vs load (based on electrical power and H₂ production rate)
 
-Efficiency vs load across a temperature sweep (color-mapped by temperature)
+- **Example plotting script**
 
-Repository structure (typical)
+	- Efficiency vs load across a temperature sweep (color-mapped by temperature)
 
-alk_cell_model.py (or equivalent module containing the classes and example script)
+## Repository structure (typical)
 
-Optional: examples/ and docs/ (if added later)
+- alk_cell_model.py (or equivalent module containing the classes and example script)
 
-Requirements
+- Optional: examples/ and docs/ (if added later)
 
-Python 3.x
+## Requirements
 
-numpy
+- Python 3.x
 
-matplotlib (only required to run the plotting example)
+- numpy
 
-Quick start (typical usage)
+- matplotlib (only required to run the plotting example)
 
-Instantiate the cell (ElectroCellALK)
+## Quick start (typical usage)
 
-Set operating parameters (e.g., rT, pressure_bar, koh_mass_frac, geometry)
+- Instantiate the cell (ElectroCellALK)
 
-Call build_curves() to populate arrays such as:
+- Set operating parameters (e.g., rT, pressure_bar, koh_mass_frac, geometry)
 
-arCurrentDensity (A/cm²)
+- Call build_curves() to populate arrays such as:
 
-arV_cell (V)
+- arCurrentDensity (A/cm²)
 
-arE_min (V, reversible component)
+- arV_cell (V)
 
-arR_cell (effective resistance terms)
+- arE_min (V, reversible component)
 
-Optionally evaluate Faraday efficiency with faraday_efficiency(J)
+- arR_cell (effective resistance terms)
 
-Notes
+- Optionally evaluate Faraday efficiency with faraday_efficiency(J)
 
-The implementation is cell-level and intended for parametric studies, system integration, and control-oriented performance maps.
+## Notes
 
-Default parameters are “representative values” as indicated in the code; for design-grade studies, parameters should be replaced with stack-specific data and validated against experiments or vendor curves.
+- The implementation is cell-level and intended for parametric studies, system integration, and control-oriented performance maps.
 
-Design updates and contributions
+- Default parameters are “representative values” as indicated in the code; for design-grade studies, parameters should be replaced with stack-specific data and validated against experiments or vendor curves.
+
+## Design updates and contributions
 
 Design updates are welcome via Pull Requests or by contacting the authors. When contributing, it is recommended to:
 
-document new correlations and assumptions in code comments (with DOI/reference),
+- document new correlations and assumptions in code comments (with DOI/reference),
 
-include a minimal test or example that reproduces expected trends.
+- include a minimal test or example that reproduces expected trends.
 
-Citation
+## Citation
 
 If this model is used in research or publications, please cite the associated technical report or software record (to be added). If no report is available yet, consider citing the repository itself (release tag and commit hash) and the primary sources referenced in the code comments.
